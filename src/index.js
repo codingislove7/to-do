@@ -20,7 +20,7 @@ app.post("/users", (req, res) => {
     });
 });
 
-//tasks
+//task
 
 app.post("/tasks", (req, res) => {
   const task = new Task(req.body);
