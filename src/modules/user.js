@@ -1,4 +1,6 @@
+// add mongoose libreary
 const mongoose = require("mongoose");
+// add validator libreary
 const validator = require("validator");
 
 const User = mongoose.model("User", {

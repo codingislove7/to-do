@@ -1,6 +1,5 @@
-const mongoose = require("mongoose");
-const validator = require("validator");
-
+const mongoose = require("mongoose"); // add mongoose libreary
+// create a task model
 const Task = mongoose.model("Task", {
   description: {
     type: String,
