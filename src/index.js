@@ -1,17 +1,30 @@
-const express = require("express"); // add express libreary
-require("./db/mongoose.js"); // add mongoose libreary
-const app = express(); // define routers
-const userRouter = require("./routers/user.js");
-const taskRouter = require("./routers/task.js");
+const express = require('express')
+require('./db/mongoose')
+const userRouter = require('./routers/user')
+const taskRouter = require('./routers/task')
 
-// add port for heroku app or locall host
-const port = process.env.PORT || 3000;
+const app = express()
+const port = process.env.PORT || 3000
 
-app.use(express.json()); // pares json
-app.use(userRouter); // add user routers
-app.use(taskRouter); // add task routers
+app.use(express.json())
+app.use(userRouter)
+app.use(taskRouter)
 
-// run the server
 app.listen(port, () => {
-  console.log("server is up on port: ", port);
-});
+    console.log('Server is up on port ' + port)
+})
+
+const bcrypt = require('bcryptjs')
+
+const myFunction = async () => {
+    const password = 'Red12345!'
+    const hashedPassword = await bcrypt.hash(password, 8)
+
+    console.log(password)
+    console.log(hashedPassword)
+
+    const isMatch = await bcrypt.compare('red12345!', hashedPassword)
+    console.log(isMatch)
+}
+
+myFunction()
